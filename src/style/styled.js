@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import { Form } from 'react-advanced-form'
-import { Inputs } from '../atoms'
 import { Link } from "react-router-dom"
 
 const HeadingContainer = styled.div`
@@ -132,6 +131,7 @@ const BorderConatiner = styled.div`
     list-style-type: none;
   }
 `
+
 const LoginButton = styled.div`
   padding: 20px;
   margin: 25px;
@@ -140,34 +140,29 @@ const LoginButton = styled.div`
   color: #fff;
   display: inline-block;
 `
+
 const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 90%;
 `
-const StyledInput = styled(Inputs)`
-  border-right-width: 0;
-  border-top-width: 0;
-  border-left-width: 0;
-  border-color: #a0a0a0;
-  flex: 0 0 80%;
-  :focus {
-    outline: none;
-    border-color: #037ef3;
+
+const StyledInput = styled.div`
+  div {
+    display: flex;
+    align-items: center;
+    p {
+      padding-left: 30px;
+      margin: 0;
+    }
   }
 `
+
 const StyledLabel = styled.label`
   width: 100%;
   flex-direction: row;
   display: flex;
-  ${StyledInput} {
-    ${props => !props.domToShow && css`
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-    `};
-  }
   select {
     width: 237px;
   }
@@ -179,6 +174,7 @@ const InputTitle = styled.div`
   align-items: center;
   text-transform: capitalize;
 `
+
 const StyledSpan = styled.span`
   flex: 0 0 100%;
   display: flex;
@@ -192,18 +188,18 @@ const StyledSpan = styled.span`
   select, option {
     text-transform: capitalize;
   }
-  ${StyledInput} {
-    flex: 0 0 100%;
-  }
 `
+
 const IconButton = styled.div`
   display: flex;
   padding-left: 10px;
 `
+
 const InputListWrap = styled.div`
   flex-basis: 100%;
 }
 `
+
 const StyledLink = styled(Link)`
   color: white;
   background-color: #037ef3;
@@ -214,16 +210,20 @@ const StyledLink = styled(Link)`
   border-radius: 2px;
   width: 200px;
 `
+
 const OverviewWrap = styled.div`
   padding-top: 50px;
 `
+
 const StyledButton = styled(LoginButton)`
   margin: 0px;
   width: 200px;
 `
+
 const GooglePlaceWrap = styled.div`
   margin: 1.5rem 0;
 `
+
 export {
   Heading,
   SigninWrapper,

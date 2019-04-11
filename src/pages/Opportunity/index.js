@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import { opportunityState } from '../../state'
+import { opportunityState } from '../../deps/state'
 import OpportunityPage from './Opportunity'
 import { GET_OPPORTUNITY } from '../../queries/Opportunity.graphql'
 

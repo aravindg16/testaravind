@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from 'react-advanced-form-addons'
 
-class Inputs extends React.Component {
+class TextBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: this.props.value};
@@ -16,5 +16,5 @@ class Inputs extends React.Component {
     }
 }
 
-export default Inputs
-export { Inputs }
+export default TextBox
+export { TextBox }

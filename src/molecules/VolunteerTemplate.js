@@ -1,14 +1,16 @@
 import React from 'react';
 import { RenderContext } from '../pages/Opportunity'
-import { renderHeadingWithContent, convertDate } from './deps'
-import { Image, BorderConatiner, LoginButton, StyledLink } from './styled'
-import { wording } from './fixture'
+import { renderHeadingWithContent, convertDate } from '../deps/renderProps'
+import { Image, BorderConatiner, LoginButton, StyledLink } from '../style/styled'
+import { wording } from '../deps/fixture'
 
 class VolunteerTemplate extends React.Component {
+    
     renderChildren = (context) => {
         const { languages, earliestStartDate, latestEndDate, duration, positions, specifics_info } = context.Opportunity
         const { languageVolunteer, earliestStartText, latestEndText, durationText, salaryText, positionText } = wording
         const durations = duration && `${duration} Weeks`
+    
         return (
             <React.Fragment>
                 <Image src="https://s3-eu-west-1.amazonaws.com/cdn.expa.aiesec.org/icons-v2/gv-logo.png" />
@@ -28,7 +30,9 @@ class VolunteerTemplate extends React.Component {
             </React.Fragment>
         )
     }
+    
     render() {
+    
         return (
             <RenderContext.Consumer>
                 {context => {

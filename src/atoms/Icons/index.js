@@ -1,3 +1,3 @@
-export * from './successIcon'
-export * from './plusIcon'
-export * from './failureIcon'
+export * from './SuccessIcon'
+export * from './PlusIcon'
+export * from './FailureIcon'

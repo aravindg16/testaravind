@@ -1,8 +1,7 @@
 import React from 'react';
 import {observer} from 'mobx-react'
-import GeneralInfo from './GeneralInfo'
-import Volunteer from './Volunteer'
-import { opportunityState } from '../../state'
+import { GeneralInfo, Volunteer } from '../../component'
+import { opportunityState } from '../../deps/state'
 
 class Opportunity extends React.Component {
     render() {

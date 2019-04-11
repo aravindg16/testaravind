@@ -1,12 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react'
-import { SelectDropdown, GoogleSuggest, Datepicker } from '../atoms'
+import { TextBox, SelectDropdown, GoogleSuggest, Datepicker, PlusIcon, FailureIcon, inputState } from '../atoms'
 import { UPDATE_OPPORTUNITY } from '../queries/Opportunity.graphql'
-import { PlusIcon, FailureIcon } from '../atoms/Icons'
 import { rules, messages } from './Validation'
 import { isArray } from 'util';
-import { inputState } from '../atoms/state'
-import { opportunityState } from '../state'
+import { opportunityState } from '../deps/state'
 import client from '../apollo';
 import { 
     StyledForm,
@@ -18,10 +16,11 @@ import {
     StyledLabel,
     StyledLink,
     GooglePlaceWrap
-} from './styled'
-import { wording, preferredOptions, levelOptions } from './fixture'
+} from '../style/styled'
+import { wording, preferredOptions, levelOptions } from '../deps/fixture'
 
 class EditOpportunities extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -30,6 +29,7 @@ class EditOpportunities extends React.Component {
             backgrounds: []
         };
     }
+    
     renderForm = (dataToEdit) => {
         const { name, value } = dataToEdit
         const dataValue = (name === wording.backgroundsText)
@@ -43,10 +43,10 @@ class EditOpportunities extends React.Component {
                 return <InputListWrap>{this.renderInputList(value, dataValue)}</InputListWrap>
             }
             else if(name === wording.earliestStartDate || name === wording.latestEndDate) {
-                return <Datepicker value={value} />
+                return <Datepicker value={value} date={name === wording.earliestStartDate?`start-date`:`end-date`}/>
             }
             else {
-                return <StyledInput name={name} value={value?value:''} type="text" required />
+                return <StyledInput><TextBox name={name} value={value?value:''} type="text" required /></StyledInput>
             }
         }
         return (
@@ -56,6 +56,7 @@ class EditOpportunities extends React.Component {
             </StyledLabel>
         )
     }
+    
     renderInputList = (data, dataValue) => {
         const isBackground = dataValue === 'backgrounds'
         let selectedNode = ''
@@ -97,6 +98,7 @@ class EditOpportunities extends React.Component {
             </React.Fragment>
         )
     }
+    
     renderBackgroundSkills = (value) => {
         const getData = (data) => {
             const options = value === 'backgrounds' ? this.state.backgrounds : this.state.skills
@@ -113,6 +115,7 @@ class EditOpportunities extends React.Component {
         }
         return inputState.selectedValue[value].map(getData)
     }
+    
     updateOpportunity = async(data: serialized) => {
         const { title, description, salary, city} = data.serialized
         const variables = {
@@ -145,6 +148,7 @@ class EditOpportunities extends React.Component {
         }
         return response
     }
+    
     componentWillMount() {
         if(opportunityState.backgroundList.length > 0) {
             opportunityState.backgroundList.forEach(function(item, index) {
@@ -169,6 +173,7 @@ class EditOpportunities extends React.Component {
             })
         }
     }
+    
     componentDidMount() {
         const { skills, backgrounds} = this.props.context
         this.setState({
@@ -176,6 +181,7 @@ class EditOpportunities extends React.Component {
             backgrounds: backgrounds
         })
     }
+    
     render() {
         const data = opportunityState.opportunityDetails && opportunityState.opportunityDetails.Opportunity
         if(data) {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { RenderContext } from '../pages/Opportunity'
-import { renderHeadingWithContent } from './deps'
-import { Heading, SigninWrapper, SigninContainer, SigninText, SigninButton, RequiredWrapper } from './styled'
-import { wording } from './fixture'
+import { renderHeadingWithContent } from '../deps/renderProps'
+import { Heading, SigninWrapper, SigninContainer, SigninText, SigninButton, RequiredWrapper } from '../style/styled'
+import { wording } from '../deps/fixture'
 
 class Prerequisites extends React.PureComponent {
     static contextType = RenderContext
@@ -10,6 +10,7 @@ class Prerequisites extends React.PureComponent {
     renderChildren = (context) => {
         const { skills, backgrounds, languages, nationalities } = context.Opportunity
         const { backgroundHeading, skillsHeading, citizenHeading, languagesHeading } = wording
+        
         return (
             <React.Fragment>
                 <Heading text={wording.prerequisitesText} heading={`mainheading`} />
@@ -30,7 +31,9 @@ class Prerequisites extends React.PureComponent {
             </React.Fragment>
         )
     }
+    
     render() {
+        
         return (
             <RenderContext.Consumer>
                 {context => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heading, HeadingContainer, Content } from './styled'
-import { wording } from './fixture'
-import { SuccessIcon, FailureIcon } from '../atoms/Icons'
+import { Heading, HeadingContainer, Content } from '../style/styled'
+import { wording } from '../deps/fixture'
+import { SuccessIcon, FailureIcon } from '../atoms'
 import { isArray } from 'util';
 
 function headingWithContent(params) {

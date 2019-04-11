@@ -1,8 +1,10 @@
 import React from 'react';
-import {GeneralInfoHeader, Overview, Prerequisites, Visaandlogistic } from '../../templates'
+import { GeneralInfoHeader, Overview, Prerequisites, Visaandlogistic } from '../molecules'
 
 class GeneralInfo extends React.PureComponent {
+    
     render() {
+        
         return (
             <div className={"general-info"}>
                 <GeneralInfoHeader />
@@ -15,3 +17,4 @@ class GeneralInfo extends React.PureComponent {
 }
 
 export default GeneralInfo
+export { GeneralInfo }

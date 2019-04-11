@@ -4,12 +4,16 @@ class State {
     opportunityDetails = {}
     backgroundList = []
     skillsList = []
+    startDate = ''
+    endDate = ''
 }
 
 decorate(State,{
     opportunityDetails: observable,
     backgroundList: observable,
-    skillsList:  observable
+    skillsList:  observable,
+    startDate:  observable,
+    endDate:  observable
 })
 
 const opportunityState = new State()

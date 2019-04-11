@@ -1,8 +1,10 @@
 import React from 'react';
-import { VolunteerTemplate } from '../../templates' 
+import { VolunteerTemplate } from '../molecules' 
 
 class Volunteer extends React.PureComponent {
+    
     render() {
+        
         return (
             <div className={`volunteer`}>
                 <VolunteerTemplate />
@@ -12,3 +14,4 @@ class Volunteer extends React.PureComponent {
 }
 
 export default Volunteer
+export { Volunteer }

@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React from "react"
 import ReactGoogleMapLoader from "react-google-maps-loader"
 import ReactGooglePlacesSuggest from "react-google-places-suggest"
  

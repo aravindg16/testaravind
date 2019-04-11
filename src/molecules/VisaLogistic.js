@@ -1,8 +1,8 @@
 import React from 'react';
 import { RenderContext } from '../pages/Opportunity'
-import { renderHeadingWithContent, renderWorkingHours, renderVisaInfo, renderLogistics } from './deps'
-import { Heading } from './styled'
-import { wording } from './fixture'
+import { renderHeadingWithContent, renderWorkingHours, renderVisaInfo, renderLogistics } from '../deps/renderProps'
+import { Heading } from '../style/styled'
+import { wording } from '../deps/fixture'
 
 class Visaandlogistic extends React.PureComponent {
     static contextType = RenderContext
@@ -10,6 +10,7 @@ class Visaandlogistic extends React.PureComponent {
     renderChildren = (context) => {
         const { host_lc, legal_info, specifics_info, logistics_info } = context.Opportunity
         const { hostOfficeHeading, healthInsurance } = wording
+        
         return (
             <React.Fragment>
                 <Heading text={wording.logisticsText}  heading={`mainheading`} />
@@ -25,6 +26,7 @@ class Visaandlogistic extends React.PureComponent {
         )
     }
     render() {
+        
         return (
             <RenderContext.Consumer>
                 {context => {

@@ -2,8 +2,8 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { GET_SKILLS, GET_BACKGROUNDS } from '../../queries/Opportunity.graphql'
 import { Link } from "react-router-dom"
-import { EditOpportunity } from '../../templates/editOpportunity'
-import { opportunityState } from '../../state'
+import { EditOpportunity } from '../../component'
+import { opportunityState } from '../../deps/state'
 
 class Editopportunity extends React.Component {
   render() {
